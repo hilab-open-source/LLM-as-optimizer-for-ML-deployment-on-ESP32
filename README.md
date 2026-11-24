@@ -7,7 +7,7 @@ timed in CPU cycles on the chip. Wrong kernels are rejected, so the only way for
 optimizer to win is to be faster. The idea comes from
 [TTT-Discover](https://github.com/test-time-training/discover)
 ([arXiv 2601.16175](https://arxiv.org/abs/2601.16175)); this branch applies it to C
-kernels on a microcontroller. (The `main` branch is the same optimizer for iPhone GPUs.)
+kernels on a microcontroller. The same optimizer for iPhone GPUs is [TTT-Discover-ios-kernel-optimization](https://github.com/hilab-open-source/TTT-Discover-ios-kernel-optimization).
 
 ```
               ┌─────────────┐  prompt: ESP32 hardware + problem + baseline + current best
