@@ -1,0 +1,31 @@
+{
+  "name": "gemv_int8",
+  "entry": "run_inference",
+  "input_size": 512,
+  "output_size": 512,
+  "num_vectors": 4,
+  "in_dtype": "int8",
+  "out_dtype": "int32",
+  "check": {
+    "mode": "exact"
+  },
+  "iters": 21,
+  "metric_note": "ESP32 CPU cycles per 512x512 int8 GEMV (median of 21)",
+  "params": [
+    {
+      "name": "gemv_W",
+      "dtype": "int8",
+      "shape": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "gemv_bias",
+      "dtype": "int32",
+      "shape": [
+        512
+      ]
+    }
+  ]
+}

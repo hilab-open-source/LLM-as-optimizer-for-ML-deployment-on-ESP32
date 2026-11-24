@@ -1,0 +1,106 @@
+{
+  "name": "scene_mlp",
+  "entry": "run_inference",
+  "input_size": 1024,
+  "output_size": 20,
+  "num_vectors": 8,
+  "in_dtype": "int8",
+  "out_dtype": "int8",
+  "check": {
+    "mode": "exact"
+  },
+  "iters": 31,
+  "metric_note": "ESP32 CPU cycles per inference (median of 31)",
+  "params": [
+    {
+      "name": "W_stem",
+      "dtype": "int8",
+      "shape": [
+        128,
+        1024
+      ]
+    },
+    {
+      "name": "b_stem",
+      "dtype": "int32",
+      "shape": [
+        128
+      ]
+    },
+    {
+      "name": "W1a",
+      "dtype": "int8",
+      "shape": [
+        128,
+        128
+      ]
+    },
+    {
+      "name": "b1a",
+      "dtype": "int32",
+      "shape": [
+        128
+      ]
+    },
+    {
+      "name": "W1b",
+      "dtype": "int8",
+      "shape": [
+        128,
+        128
+      ]
+    },
+    {
+      "name": "b1b",
+      "dtype": "int32",
+      "shape": [
+        128
+      ]
+    },
+    {
+      "name": "W2a",
+      "dtype": "int8",
+      "shape": [
+        128,
+        128
+      ]
+    },
+    {
+      "name": "b2a",
+      "dtype": "int32",
+      "shape": [
+        128
+      ]
+    },
+    {
+      "name": "W2b",
+      "dtype": "int8",
+      "shape": [
+        128,
+        128
+      ]
+    },
+    {
+      "name": "b2b",
+      "dtype": "int32",
+      "shape": [
+        128
+      ]
+    },
+    {
+      "name": "W_out",
+      "dtype": "int8",
+      "shape": [
+        20,
+        128
+      ]
+    },
+    {
+      "name": "b_out",
+      "dtype": "int32",
+      "shape": [
+        20
+      ]
+    }
+  ]
+}

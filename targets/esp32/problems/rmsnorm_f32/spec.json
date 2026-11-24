@@ -1,0 +1,25 @@
+{
+  "name": "rmsnorm_f32",
+  "entry": "run_inference",
+  "input_size": 1024,
+  "output_size": 1024,
+  "num_vectors": 6,
+  "in_dtype": "float32",
+  "out_dtype": "float32",
+  "check": {
+    "mode": "tolerance",
+    "atol": 0.0001,
+    "rtol": 0.001
+  },
+  "iters": 31,
+  "metric_note": "ESP32 CPU cycles per RMSNorm(1024) row (median of 31)",
+  "params": [
+    {
+      "name": "rms_gamma",
+      "dtype": "float32",
+      "shape": [
+        1024
+      ]
+    }
+  ]
+}

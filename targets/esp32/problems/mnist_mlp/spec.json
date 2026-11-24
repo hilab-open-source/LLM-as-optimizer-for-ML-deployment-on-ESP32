@@ -1,0 +1,106 @@
+{
+  "name": "mnist_mlp",
+  "entry": "run_inference",
+  "input_size": 256,
+  "output_size": 10,
+  "num_vectors": 8,
+  "in_dtype": "int8",
+  "out_dtype": "int8",
+  "check": {
+    "mode": "exact"
+  },
+  "iters": 31,
+  "metric_note": "ESP32 CPU cycles per inference (median of 31)",
+  "params": [
+    {
+      "name": "W_stem",
+      "dtype": "int8",
+      "shape": [
+        64,
+        256
+      ]
+    },
+    {
+      "name": "b_stem",
+      "dtype": "int32",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "name": "W1a",
+      "dtype": "int8",
+      "shape": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "b1a",
+      "dtype": "int32",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "name": "W1b",
+      "dtype": "int8",
+      "shape": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "b1b",
+      "dtype": "int32",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "name": "W2a",
+      "dtype": "int8",
+      "shape": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "b2a",
+      "dtype": "int32",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "name": "W2b",
+      "dtype": "int8",
+      "shape": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "b2b",
+      "dtype": "int32",
+      "shape": [
+        64
+      ]
+    },
+    {
+      "name": "W_out",
+      "dtype": "int8",
+      "shape": [
+        10,
+        64
+      ]
+    },
+    {
+      "name": "b_out",
+      "dtype": "int32",
+      "shape": [
+        10
+      ]
+    }
+  ]
+}

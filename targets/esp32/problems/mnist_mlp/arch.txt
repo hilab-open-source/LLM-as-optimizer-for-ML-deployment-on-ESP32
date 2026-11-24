@@ -1,0 +1,15 @@
+Model: mnist classifier (ResNet-style int8 MLP), running on the ESP32 CPU.
+
+  Input:     INPUT_SIZE = 256 int8 values per sample
+  Stem:      Dense(64, relu)        W_stem[64][256], b_stem[64]
+  ResBlock1: Dense(64,relu) -> Dense(64) + skip -> relu     (W1a,b1a,W1b,b1b)
+  ResBlock2: Dense(64,relu) -> Dense(64) + skip -> relu     (W2a,b2a,W2b,b2b)
+  Output:    Dense(10)               W_out[10][64], b_out[10]  (no relu)
+  Work:      33,408 int8 multiply-accumulates per sample; 34 KB of weights.
+
+Fixed-point scheme (must be preserved exactly):
+  Each dense layer computes acc(int32) = bias + sum(W[int8] * x[int8]), then
+  acc >>= 7 (arithmetic shift), then ReLU and clamp to int8 [-128,127]. The output
+  head has no ReLU. The residual skip is added AFTER the >>7 requant.
+All int8 outputs must be bit-identical to the reference for every one of the
+8 test vectors, before and after the timed runs.

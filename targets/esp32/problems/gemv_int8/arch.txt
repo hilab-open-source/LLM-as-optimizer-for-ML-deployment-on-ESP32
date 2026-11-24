@@ -1,0 +1,9 @@
+Operator: int8 GEMV (matrix-vector product), the core of every dense layer.
+
+  y[m] = gemv_bias[m] + sum_n gemv_W[m][n] * x[n]      (int32 accumulate, no requant)
+  gemv_W: int8 [512][512] = 256 KB, in flash. x: int8 [512]. y: int32 [512].
+
+Correctness is exact integer arithmetic. 256 KB of weights is far bigger than the
+32 KB flash cache and does not fit comfortably in internal SRAM, so the weights stream
+from flash on every call: how they are read (32-bit loads, sequential access, fewer
+loop-control instructions per MAC) matters as much as the arithmetic.

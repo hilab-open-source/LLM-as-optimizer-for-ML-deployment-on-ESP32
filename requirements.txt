@@ -1,0 +1,10 @@
+# Optimizer loop + problem generation
+httpx
+anthropic
+python-dotenv
+numpy
+pyserial          # talks to the ESP32 harness over USB serial
+
+# Only needed to (re)train the int8 MLP models under models/
+torch
+datasets

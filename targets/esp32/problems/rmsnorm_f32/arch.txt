@@ -1,0 +1,7 @@
+Operator: RMSNorm over a row of 1024 float32 values (the normalization in Llama-style models).
+
+  y[i] = x[i] * rsqrt(mean(x^2) + eps) * rms_gamma[i]          eps = RMS_EPS
+
+Reference computed in float64; a candidate passes if |y - ref| <= 0.0001 + 0.001*|ref| for
+every element. The ESP32 has a single-precision FPU (float add/mul/madd in hardware;
+double is software-emulated and slow, sqrtf/division are multi-cycle).
